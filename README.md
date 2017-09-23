@@ -1,24 +1,15 @@
-# README
+# Launchpad API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the APi for the launchpad platform.
 
-Things you may want to cover:
+## Development
 
-* Ruby version
+1) Clone this repository
+2) Make sure you have rails installed
+3) Run `bundle install`
+4) Run `rake db:setup`
+5) Visit localhost:3000
 
-* System dependencies
+I recommend the Chrome extension JSONView, which formats the Json that's rendered to the webpage in a very readable format.
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
