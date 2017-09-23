@@ -1,4 +1,5 @@
 class ListingController < ApplicationController
+  before_action :authenticate_user!
 
   # TODO: remove before publication
   def index_listings
