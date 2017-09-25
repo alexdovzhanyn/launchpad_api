@@ -15,8 +15,6 @@ I recommend the Chrome extension JSONView, which formats the Json that's rendere
 
 __Get Listing By ID__
 
-_________________________________
-
 _GET_ `/listings/:id`
 
 SAMPLE RESPONSE:
@@ -33,9 +31,9 @@ SAMPLE RESPONSE:
 }
 ```
 
-__Update a Listing__
-
 _________________________________
+
+__Update a Listing__
 
 _POST_ `/listings/:id`
 
