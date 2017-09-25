@@ -16,11 +16,12 @@ I recommend the Chrome extension JSONView, which formats the Json that's rendere
 ### Listings
 
 __Get Listing By ID__
+
 _GET_ `/listings/:id`
 
 SAMPLE RESPONSE:
 
-`
+```
 {
   "id": 1,
   "title": "Help me create a partnerships app",
@@ -30,19 +31,21 @@ SAMPLE RESPONSE:
   "created_at": "2017-09-25T13:48:41.571Z",
   "updated_at": "2017-09-25T13:48:41.571Z"
 }
-`
+```
 
 __Update a Listing__
+
+
 _POST_ `/listings/:id`
 
 REQUEST OPTIONS:
-..* title (String)
-..* description (String)
-..* category (String)
+* title (String)
+* description (String)
+* category (String)
 
 SAMPLE RESPONSE:
 
-`
+```
 {
   "id": 1,
   "title": "Help me create a partnerships app",
@@ -52,4 +55,4 @@ SAMPLE RESPONSE:
   "created_at": "2017-09-25T13:48:41.571Z",
   "updated_at": "2017-09-25T13:48:41.571Z"
 }
-`
+```
