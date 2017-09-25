@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
-  
+
   # TODO: remove before publication
 	get '/' => 'application#fetch_all'
+
+  scope '/users' do
+    post '/new' => 'user#create'
+  end
   
 	scope '/listings' do
     # TODO: remove before publication
