@@ -11,11 +11,11 @@ This is the APi for the launchpad platform.
 
 I recommend the Chrome extension JSONView, which formats the Json that's rendered to the webpage in a very readable format.
 
-## API Documentation
-
-### Listings
+## Listings
 
 __Get Listing By ID__
+
+_________________________________
 
 _GET_ `/listings/:id`
 
@@ -35,6 +35,7 @@ SAMPLE RESPONSE:
 
 __Update a Listing__
 
+_________________________________
 
 _POST_ `/listings/:id`
 
