@@ -1,5 +1,6 @@
 class ListingController < ApplicationController
-  before_action :authenticate_user!
+  # TODO: re-enable once we have user auth set up with tokens
+  # before_action :authenticate_user!
 
   # TODO: remove before publication
   def index_listings
