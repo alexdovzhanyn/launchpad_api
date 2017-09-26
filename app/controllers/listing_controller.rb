@@ -45,11 +45,12 @@ class ListingController < ApplicationController
     render json: listing.to_json
   end
 
-  # TODO: authorization
   def delete
     listing = Listing.find_by_id(params[:id])
-
     render status: 204 and return unless listing
+
+    permitted = listing.user_id == current_user.user_id or current_user.is_moderator
+    render status: 401 and return unless permitted
 
     render status: (listing.destroy ? 200 : 404)
   end
