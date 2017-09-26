@@ -6,8 +6,14 @@ class ListingController < ApplicationController
     render json: Listing.all.to_json
   end
 
-  # TODO
   def new
+    listing = current_user.listings.create({
+      title: params[:title],
+      description: params[:description],
+      category: params[:category]
+    })
+
+    render json: listing.to_json
   end
 
   def get

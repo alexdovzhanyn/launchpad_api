@@ -10,7 +10,8 @@ This is the APi for the launchpad platform.
 | Path          | Method        | Parameters                                                   | Purpose               |
 |:------------- |:--------------| ------------------------------------------------------------:|:----------------------|
 | /listings/:id | GET           | N/A                                                          | Fetch listing by ID   |
-| /listings/:id | POST          | `title`, `description`, `category`                           | Update a listing      |
+| /listings/new | POST          | `title`, `description`, `category`                           | Create a listing      |
+| /listings/:id | PUT           | `title`, `description`, `category`                           | Update a listing      |
 | /listings/:id | DELETE        | N/A                                                          | Delete a listing      |
 
 ## Users
