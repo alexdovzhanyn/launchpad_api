@@ -2,7 +2,7 @@ class ListingController < ApplicationController
   before_action :authenticate_user!
 
   # TODO: remove before publication
-  def index_listings
+  def index
     render json: Listing.all.to_json
   end
 
@@ -10,7 +10,7 @@ class ListingController < ApplicationController
   def new_listing
   end
 
-  def get_listing
+  def get
     listing = Listing.find_by_id(params[:id])
 
     if listing
@@ -21,7 +21,7 @@ class ListingController < ApplicationController
   end
 
   # TODO: authorization
-  def edit_listing
+  def edit
     listing = Listing.find_by_id(params[:id])
 
     render status: 204 and return unless listing
@@ -39,7 +39,7 @@ class ListingController < ApplicationController
   end
 
   # TODO: authorization
-  def delete_listing
+  def delete
     listing = Listing.find_by_id(params[:id])
 
     render status: 204 and return unless listing
