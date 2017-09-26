@@ -38,4 +38,16 @@ class User < ApplicationRecord
   has_many :listings
 
   enum role: [ :user, :moderator, :administrator ]
+
+  def has_role(role)
+    return User.roles[self.role] >= User.roles[role]
+  end
+
+  def is_moderator
+    return has_role(User.roles[:moderator])
+  end
+
+  def is_administrator
+    return has_role(User.roles[:administrator])
+  end
 end
