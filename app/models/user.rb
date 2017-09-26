@@ -32,4 +32,6 @@ class User < ApplicationRecord
           :omniauthable
   include DeviseTokenAuth::Concerns::User
   has_many :listings
+
+  enum role: [ :user, :moderator, :administrator ]
 end
