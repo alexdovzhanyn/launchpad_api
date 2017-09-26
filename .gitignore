@@ -21,4 +21,4 @@
 
 /.idea
 
-/Gemfile.lock
+./Gemfile.lock
