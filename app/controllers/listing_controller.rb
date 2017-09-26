@@ -33,13 +33,9 @@ class ListingController < ApplicationController
     permitted = listing.user_id == current_user.user_id or current_user.is_moderator
     render status: 401 and return unless permitted
 
-    title = params[:title]
-    description = params[:description]
-    category = params[:category]
-
-    listing.title = title if title
-    listing.description = description if description
-    listing.category = category if category
+    listing.title = params[:title] if params[:title]
+    listing.description = params[:description] if params[:description]
+    listing.category = params[:category] if params[:category]
     listing.save
 
     render json: listing.to_json
