@@ -24,6 +24,10 @@
 #  failed_attempts        :integer          default(0), not null
 #  unlock_token           :string
 #  locked_at              :datetime
+#  provider               :string           default("email"), not null
+#  uid                    :string           default(""), not null
+#  tokens                 :json
+#  role                   :integer
 #
 
 class User < ApplicationRecord
