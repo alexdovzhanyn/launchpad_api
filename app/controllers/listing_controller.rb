@@ -7,7 +7,7 @@ class ListingController < ApplicationController
   end
 
   # TODO
-  def new_listing
+  def new
   end
 
   def get
