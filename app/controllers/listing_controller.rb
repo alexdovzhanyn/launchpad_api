@@ -29,6 +29,9 @@ class ListingController < ApplicationController
   # TODO: authorization
   def edit
     listing = Listing.find_by_id(params[:id])
+    is_current_users_post = listing.user_id == current_user.user_id
+    is_permitted = User.roles[current_user.role] > User.roles[:user]
+    return if is_current_users_post or current_user.role
 
     render status: 204 and return unless listing
 
