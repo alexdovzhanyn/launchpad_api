@@ -26,29 +26,27 @@ class ListingController < ApplicationController
     end
   end
 
-  # TODO: authorization
   def edit
     listing = Listing.find_by_id(params[:id])
-
     render status: 204 and return unless listing
 
-    title = params[:title]
-    description = params[:description]
-    category = params[:category]
+    permitted = listing.user_id == current_user.id || current_user.is_moderator
+    render status: 401 and return unless permitted
 
-    listing.title = title if title
-    listing.description = description if description
-    listing.category = category if category
+    listing.title = params[:title] if params[:title]
+    listing.description = params[:description] if params[:description]
+    listing.category = params[:category] if params[:category]
     listing.save
 
     render json: listing.to_json
   end
 
-  # TODO: authorization
   def delete
     listing = Listing.find_by_id(params[:id])
-
     render status: 204 and return unless listing
+
+    permitted = listing.user_id == current_user.id || current_user.is_moderator
+    render status: 401 and return unless permitted
 
     render status: (listing.destroy ? 200 : 404)
   end

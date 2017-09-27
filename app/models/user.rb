@@ -24,6 +24,10 @@
 #  failed_attempts        :integer          default(0), not null
 #  unlock_token           :string
 #  locked_at              :datetime
+#  provider               :string           default("email"), not null
+#  uid                    :string           default(""), not null
+#  tokens                 :json
+#  role                   :integer
 #
 
 class User < ApplicationRecord
@@ -32,4 +36,18 @@ class User < ApplicationRecord
           :omniauthable
   include DeviseTokenAuth::Concerns::User
   has_many :listings
+
+  enum role: [ :user, :moderator, :administrator ]
+
+  def has_role(role)
+    return User.roles[self.role] >= User.roles[role]
+  end
+
+  def is_moderator
+    return has_role(:moderator)
+  end
+
+  def is_administrator
+    return has_role(:administrator)
+  end
 end
