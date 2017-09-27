@@ -33,6 +33,7 @@ comprehensive list can be found [here](https://github.com/lynndylanhurley/devise
 2) Download and install Postgres
 3) Run `bundle install`
 4) Run `rake db:setup`
-5) Visit localhost:3000
+5) Run `rails s`
+6) Visit localhost:3000
 
 I recommend the Chrome extension JSONView, which formats the Json that's rendered to the webpage in a very readable format.

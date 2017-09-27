@@ -44,10 +44,10 @@ class User < ApplicationRecord
   end
 
   def is_moderator
-    return has_role(User.roles[:moderator])
+    return has_role(:moderator)
   end
 
   def is_administrator
-    return has_role(User.roles[:administrator])
+    return has_role(:administrator)
   end
 end
