@@ -1,7 +1,9 @@
 user = User.create(
 	first_name: 'Alex',
 	last_name: 'Dovzhanyn',
-	email: 'dovzhanyn.alex@gmail.com'
+	email: 'dovzhanyn.alex@gmail.com',
+	password: 'password',
+	role: :administrator
 )
 
 Listing.create(
