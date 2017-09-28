@@ -40,5 +40,10 @@ module LaunchpadApi
           :methods => [:get, :post, :options, :delete, :put]
       end
     end
+
+    Raven.configure do |config|
+      config.dsn = "http://#{ENV['SENTRY_KEY']}:#{ENV['SENTRY_SECRET']}@sentry.io/223075"
+      # config.environments = ['production']
+    end
   end
 end
