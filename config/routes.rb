@@ -21,7 +21,4 @@ Rails.application.routes.draw do
 	scope '/user' do
 		get '/info/:id' => 'user#get'
 	end
-
-	
-
 end
