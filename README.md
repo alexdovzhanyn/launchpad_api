@@ -20,13 +20,13 @@ We use the `devise_token_auth` gem to manage our user authentication. These are 
 comprehensive list can be found [here](https://github.com/lynndylanhurley/devise_token_auth#usage-tldr)
 
 
-| Path          | Method        | Parameters                                                   | Purpose                                       |
-|:--------------|:--------------| ------------------------------------------------------------:|:----------------------------------------------|
-| /user         | POST          | `email`, `password`, `password_confirmation`                 | Register a new user                           |
-| /user         | DELETE        | `uid`, `access_token`, `client`                              | Delete an existing user                       |
-| /user/sign_in | POST          | `email`, `password`                                          | Authenticate a user and get their token       |
-| /user/sign_out| DELETE        | `uid`, `access_token`, `client`                              | Inauthenticate a user and destroy their token |
-| /user/info/:id| GET           | N/A                                                          | Fetch information about a user                |
+| Path           | Method        | Parameters                                                   | Purpose                                       |
+|:---------------|:--------------| ------------------------------------------------------------:|:----------------------------------------------|
+| /users         | POST          | `email`, `password`, `password_confirmation`                 | Register a new user                           |
+| /users         | DELETE        | `id`                                                         | Delete an existing user                       |
+| /users/sign_in | POST          | `email`, `password`                                          | Authenticate a user and get their token       |
+| /users/sign_out| DELETE        | `uid`, `access_token`, `client`                              | Inauthenticate a user and destroy their token |
+| /users/:id     | GET           | N/A                                                          | Fetch information about a user                |
 
 ## Development
 
