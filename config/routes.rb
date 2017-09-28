@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'user'
-
+  mount_devise_token_auth_for 'User', at: 'user', controllers: {
+  	sessions: 'sessions',
+  	passwords: 'passwords',
+		registrations: 'registrations',
+		omniauth_callbacks: 'omniauth_callbacks'  	
+  }
 
   # TODO: remove before publication
 	get '/' => 'application#fetch_all'
@@ -14,8 +18,7 @@ Rails.application.routes.draw do
 		delete '/:id' => 'listing#delete'
 	end
 
-	scope '/users' do
-		get '/:id' => 'user#get'
+	scope '/user' do
+		get '/info/:id' => 'user#get'
 	end
-
 end

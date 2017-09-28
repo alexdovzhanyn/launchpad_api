@@ -26,7 +26,7 @@ comprehensive list can be found [here](https://github.com/lynndylanhurley/devise
 | /user         | DELETE        | `uid`, `access_token`, `client`                              | Delete an existing user                       |
 | /user/sign_in | POST          | `email`, `password`                                          | Authenticate a user and get their token       |
 | /user/sign_out| DELETE        | `uid`, `access_token`, `client`                              | Inauthenticate a user and destroy their token |
-| /users/:id    | GET           | N/A                                                          | Fetch information about a user                |
+| /user/info/:id| GET           | N/A                                                          | Fetch information about a user                |
 
 ## Development
 
