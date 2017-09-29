@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get '/comments/:id' => 'comment#get'
     post '/comments' => 'comment#new'
     put '/comments/:id' => 'comment#edit'
-    delete `/comments/:id` => `comment#delete`
+    delete '/comments/:id' => 'comment#delete'
     post '/:listing_id/comments' => 'comment#new'
     get '/:listing_id/comments' => 'comment#index'
   end
