@@ -17,8 +17,6 @@ Rails.application.routes.draw do
     put '/:id' => 'listing#edit'
     delete '/:id' => 'listing#delete'
 
-    # TODO: remove before publication
-    get '/comments' => 'comment#index'
     get '/comments/:id' => 'comment#get'
     post '/comments' => 'comment#new'
     put '/comments/:id' => 'comment#edit'
