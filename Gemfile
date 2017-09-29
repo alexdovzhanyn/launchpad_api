@@ -44,3 +44,5 @@ gem 'devise'
 gem 'devise_token_auth'
 
 gem 'omniauth'
+
+gem 'rubocop', require: false
