@@ -25,6 +25,7 @@ class CommentController < ApplicationController
     render status: :unauthorized && return unless current_user.id == comment&.user_id || current_user.is_moderator
     render status: :not_found && return unless comment
     comment.content = params[:content] if params[:content]
+    comment.save
     render json: comment.to_json
   end
 
