@@ -5,7 +5,7 @@ class RegistrationsController < DeviseTokenAuth::RegistrationsController
   # If no is given, the currently logged in user will be deleted.
   def destroy
     if params[:id]
-      authorized = params[:id] == current_user&.id || current_user&.is_administrator
+      authorized = params[:id] == current_user&.id || current_user&.administrator?
       render(status: 401) && return unless authorized
 
       user = User.find_by_id(params[:id])

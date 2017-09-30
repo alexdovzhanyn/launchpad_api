@@ -41,15 +41,15 @@ class User < ApplicationRecord
 
   enum role: %i[user moderator administrator]
 
-  def has_role(role)
+  def role?(role)
     User.roles[self.role] >= User.roles[role]
   end
 
-  def is_moderator
-    has_role(:moderator)
+  def moderator?
+    role?(:moderator)
   end
 
-  def is_administrator
-    has_role(:administrator)
+  def administrator?
+    role?(:administrator)
   end
 end

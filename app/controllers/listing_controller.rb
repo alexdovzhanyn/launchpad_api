@@ -28,7 +28,7 @@ class ListingController < ApplicationController
     listing = Listing.find_by_id(params[:id])
     render(status: 204) && return unless listing
 
-    permitted = listing.user_id == current_user.id || current_user.is_moderator
+    permitted = listing.user_id == current_user.id || current_user.moderator?
     render(status: 401) && return unless permitted
 
     listing.title = params[:title] if params[:title]
@@ -43,7 +43,7 @@ class ListingController < ApplicationController
     listing = Listing.find_by_id(params[:id])
     render(status: 204) && return unless listing
 
-    permitted = listing.user_id == current_user.id || current_user.is_moderator
+    permitted = listing.user_id == current_user.id || current_user.moderator?
     render(status: 401) && return unless permitted
 
     render status: (listing.destroy ? 200 : 404)

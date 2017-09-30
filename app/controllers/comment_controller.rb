@@ -22,7 +22,7 @@ class CommentController < ApplicationController
 
   def edit
     comment = Comment.find_by_id(params[:id])
-    render status: :unauthorized and return unless current_user.id == comment&.user_id || current_user.is_moderator
+    render status: :unauthorized and return unless current_user.id == comment&.user_id || current_user.moderator?
     render status: :not_found and return unless comment
     comment.content = params[:content] if params[:content]
     comment.save
@@ -31,7 +31,7 @@ class CommentController < ApplicationController
 
   def delete
     comment = Comment.find_by_id(params[:id])
-    render status: :unauthorized and return unless current_user.id == comment&.user_id || current_user.is_moderator
+    render status: :unauthorized and return unless current_user.id == comment&.user_id || current_user.moderator?
     comment.destroy
     render status: :ok
   end
