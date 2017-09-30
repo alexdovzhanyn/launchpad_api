@@ -31,6 +31,10 @@ Metrics/AbcSize:
 Layout/Tab:
   Enabled: false
 
+# don't complain about "do_something and return if some_condition"
+Style/AndOr:
+  EnforcedStyle: conditionals
+
 # Disable frozen-string-literal check
 Style/FrozenStringLiteralComment:
   Enabled: false
