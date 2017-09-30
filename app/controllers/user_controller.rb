@@ -7,9 +7,8 @@ class UserController < ApplicationController
 
 		if user
       render json: user.attributes.extract!('email', 'first_name', 'last_name', 'created_at').to_json
-    else
+  else
       render status: 204
     end
 	end
-
 end

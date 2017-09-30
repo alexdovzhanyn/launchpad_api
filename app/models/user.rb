@@ -32,24 +32,24 @@
 
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable,
-          :omniauthable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable
   include DeviseTokenAuth::Concerns::User
 
   has_many :listings
-	has_many :comments
+	 has_many :comments
 
-  enum role: [ :user, :moderator, :administrator ]
+  enum role: %i[user moderator administrator]
 
   def has_role(role)
-    return User.roles[self.role] >= User.roles[role]
+    User.roles[self.role] >= User.roles[role]
   end
 
   def is_moderator
-    return has_role(:moderator)
+    has_role(:moderator)
   end
 
   def is_administrator
-    return has_role(:administrator)
+    has_role(:administrator)
   end
 end
