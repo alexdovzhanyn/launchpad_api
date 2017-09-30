@@ -2,16 +2,16 @@ class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
   before_action :set_raven_context
 
-	 def fetch_all
- 		return_value = {
- 			users: User.all,
- 			listings: Listing.all
- 		}
+  def fetch_all
+    return_value = {
+      users: User.all,
+      listings: Listing.all
+    }
 
- 		render json: return_value.to_json
- 	end
+    render json: return_value.to_json
+  end
 
-	private
+	private :set_raven_context
 
   def set_raven_context
     Raven.user_context(id: current_user ? current_user.id : 'Not signed in')
