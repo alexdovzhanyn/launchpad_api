@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
     render json: return_value.to_json
   end
 
-	private :set_raven_context
+  private :set_raven_context
 
   def set_raven_context
     Raven.user_context(id: current_user ? current_user.id : 'Not signed in')
