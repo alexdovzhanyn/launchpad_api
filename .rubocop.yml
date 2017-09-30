@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.3
   Include:
     - Rakefile
     - config.ru
@@ -27,6 +28,10 @@ Metrics/AbcSize:
 
 # Prefer tab indentation
 Layout/Tab:
+  Enabled: false
+
+# Disable frozen-string-literal check
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 # Don't care about documenting every class
