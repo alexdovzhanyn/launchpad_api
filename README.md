@@ -14,6 +14,16 @@ This is the APi for the launchpad platform.
 | /listings/:id | PUT           | `title`, `description`, `category`                           | Update a listing      |
 | /listings/:id | DELETE        | N/A                                                          | Delete a listing      |
 
+### Comments
+| Path                           | Method | Parameters              | Purpose                                |
+|--------------------------------|--------|-------------------------|----------------------------------------|
+| /listings/:listing_id/comments | GET    | N/A                     | Get all comments of a specific listing |
+| /listings/comments/:id         | GET    | N/A                     | Fetch a specific comment               |
+| /listings/comments             | POST   | `listing_id`, `content` | Add a comment to a listing             |
+| /listings/comments/:id         | DELETE | N/A                     | Delete a comment                       |
+| /listings/:listing_id/comments | POST   | `content`               | Add a comment to a listing             |
+| /listings/comments/:id         | PUT    | `content`               | Edit a comment                         |
+
 ## Users
 
 We use the `devise_token_auth` gem to manage our user authentication. These are a few routes that they provide for us, but a more

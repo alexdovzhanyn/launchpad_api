@@ -16,6 +16,13 @@ Rails.application.routes.draw do
     post '/new' => 'listing#new'
     put '/:id' => 'listing#edit'
     delete '/:id' => 'listing#delete'
+
+    get '/comments/:id' => 'comment#get'
+    post '/comments' => 'comment#new'
+    put '/comments/:id' => 'comment#edit'
+    delete '/comments/:id' => 'comment#delete'
+    post '/:listing_id/comments' => 'comment#new'
+    get '/:listing_id/comments' => 'comment#index'
   end
 
   scope '/users' do

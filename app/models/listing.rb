@@ -13,4 +13,9 @@
 
 class Listing < ApplicationRecord
 	belongs_to :user
+	has_many :comments
+
+  def as_json(options)
+    super({:include => :comments}.merge(options))
+  end
 end

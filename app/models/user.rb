@@ -27,7 +27,7 @@
 #  provider               :string           default("email"), not null
 #  uid                    :string           default(""), not null
 #  tokens                 :json
-#  role                   :integer
+#  role                   :integer          default("user"), not null
 #
 
 class User < ApplicationRecord
@@ -35,7 +35,9 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable
   include DeviseTokenAuth::Concerns::User
+
   has_many :listings
+	has_many :comments
 
   enum role: [ :user, :moderator, :administrator ]
 
