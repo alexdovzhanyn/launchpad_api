@@ -37,7 +37,7 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   has_many :listings
-	 has_many :comments
+  has_many :comments
 
   enum role: %i[user moderator administrator]
 
