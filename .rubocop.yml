@@ -31,6 +31,10 @@ Metrics/AbcSize:
 Layout/Tab:
   Enabled: false
 
+# Prefer [:foo, :bar, :baz] over %i[foo bar baz]
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
 # don't complain about "do_something and return if some_condition"
 Style/AndOr:
   EnforcedStyle: conditionals
