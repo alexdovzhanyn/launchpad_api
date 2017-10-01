@@ -50,3 +50,8 @@ comprehensive list can be found [here](https://github.com/lynndylanhurley/devise
 8) Visit localhost:3000
 
 I recommend the Chrome extension JSONView, which formats the Json that's rendered to the webpage in a very readable format.
+
+## Testing
+
+To test, make sure you've run all migrations on your test db by doing the following: `bin/rails db:migrate RAILS_ENV=test`
+Then just run: `rspec --format doc`
