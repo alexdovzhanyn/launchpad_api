@@ -7,9 +7,11 @@ class ListingController < ApplicationController
   end
 
   def new
-    listing = current_user.listings.create(title: params[:title],
-                                           description: params[:description],
-                                           category: params[:category])
+    listing = current_user.listings.create(
+      title: params[:title],
+      description: params[:description],
+      category: params[:category]
+    )
 
     render json: listing.to_json
   end
