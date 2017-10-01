@@ -1,27 +1,18 @@
 class RegistrationsController < DeviseTokenAuth::RegistrationsController
+  before_action :authenticate_user!, only: [:destroy]
 
   # Deletes the user identified by the given ID.
   # The ID has to be passed in the URL (/users/?id=42)
   # or in the body ({"id": 42}).
   # If no is given, the currently logged in user will be deleted.
   def destroy
-    if params[:id]
-      authorized = params[:id] == current_user&.id || current_user&.is_administrator
-      render status: 401 and return unless authorized
+    user = params[:id] ? User.find_by_id(params[:id]) : current_user
+    render status: :not_found and return unless user
 
-      user = User.find_by_id(params[:id])
-      render status: 404 and return unless user
+    authorized = user.id == current_user.id || current_user.administrator?
+    render status: :unauthorized and return unless authorized
 
-      user.destroy
-      render status: 200
-    elsif current_user
-      # no id given, but logged in
-      current_user.destroy
-      render status: 200
-    else
-      # not logged in and no id given
-      render status: 400
-    end
+    user.destroy
+    render status: :ok
   end
-
 end

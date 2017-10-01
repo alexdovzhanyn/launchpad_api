@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -24,21 +23,22 @@ gem 'rack-cors'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
-  gem 'pry'
   gem 'dotenv-rails'
+  gem 'pry'
+  gem 'rspec-rails'
 end
 
 group :development do
-	# Document generated modules
-	gem 'annotate', require: false
+  # Document generated modules
+  gem 'annotate', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
 # Use sentry for automatic error reporting
-gem "sentry-raven"
+gem 'sentry-raven'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise'
 gem 'devise_token_auth'

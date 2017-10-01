@@ -1,5 +1,7 @@
 AllCops:
+  TargetRubyVersion: 2.3
   Include:
+    - '**/Gemfile'
     - Rakefile
     - config.ru
     - lib/**/*.rake
@@ -27,6 +29,14 @@ Metrics/AbcSize:
 
 # Prefer tab indentation
 Layout/Tab:
+  Enabled: false
+
+# don't complain about "do_something and return if some_condition"
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+# Disable frozen-string-literal check
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 # Don't care about documenting every class
