@@ -25,12 +25,13 @@ group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
   gem 'dotenv-rails'
   gem 'pry'
+  gem 'rspec-rails'
 end
 
 group :development do
-	# Document generated modules
-	gem 'annotate', require: false
- gem 'listen', '>= 3.0.5', '< 3.2'
+  # Document generated modules
+  gem 'annotate', require: false
+  gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
 # Use sentry for automatic error reporting

@@ -35,15 +35,19 @@ module LaunchpadApi
       allow do
         origins '*'
         resource '*',
-                 headers: :any,
-                 expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-                 methods: %i[get post options delete put]
+        headers: :any,
+        expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+        methods: %i[get post options delete put]
       end
     end
 
     Raven.configure do |config|
       config.dsn = "http://#{ENV['SENTRY_KEY']}:#{ENV['SENTRY_SECRET']}@sentry.io/223075"
-      # config.environments = ['production']
+      config.environments = ['production']
+    end
+
+    config.generators do |g|
+      g.test_framework :rspec
     end
   end
 end
