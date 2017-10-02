@@ -39,7 +39,7 @@ class User < ApplicationRecord
   has_many :listings
   has_many :comments
 
-  enum role: %i[user moderator administrator]
+  enum role: [:user, :moderator, :administrator]
 
   def role?(role)
     User.roles[self.role] >= User.roles[role]

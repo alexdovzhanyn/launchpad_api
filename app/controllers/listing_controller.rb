@@ -7,9 +7,11 @@ class ListingController < ApplicationController
   end
 
   def new
-    listing = current_user.listings.create(title: params[:title],
-                                           description: params[:description],
-                                           category: params[:category])
+    listing = current_user.listings.create(
+      title: params[:title],
+      description: params[:description],
+      category: params[:category]
+    )
 
     render json: listing.to_json
   end
@@ -26,10 +28,10 @@ class ListingController < ApplicationController
 
   def edit
     listing = Listing.find_by_id(params[:id])
-    render(status: 204) && return unless listing
+    render(status: 204) and return unless listing
 
     permitted = listing.user_id == current_user.id || current_user.moderator?
-    render(status: 401) && return unless permitted
+    render(status: 401) and return unless permitted
 
     listing.title = params[:title] if params[:title]
     listing.description = params[:description] if params[:description]
@@ -41,10 +43,10 @@ class ListingController < ApplicationController
 
   def delete
     listing = Listing.find_by_id(params[:id])
-    render(status: 204) && return unless listing
+    render(status: 204) and return unless listing
 
     permitted = listing.user_id == current_user.id || current_user.moderator?
-    render(status: 401) && return unless permitted
+    render(status: 401) and return unless permitted
 
     render status: (listing.destroy ? 200 : 404)
   end
